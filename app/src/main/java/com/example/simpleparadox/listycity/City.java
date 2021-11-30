@@ -9,16 +9,19 @@ public class City implements Comparable<City>{
         this.province = province;
     }
 
-    String getCityName(){
+    String getCityName()
+    {
         return this.city;
     }
 
-    String getProvinceName(){
+    String getProvinceName()
+    {
         return this.province;
     }
 
     @Override
-    public int compareTo(City o) {
-        return city.compareTo(o.getCityName());
+    public int compareTo(City object)
+    {
+        return city.compareTo(object.getCityName());
     }
 }

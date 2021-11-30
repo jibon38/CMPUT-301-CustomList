@@ -20,14 +20,13 @@ class CityListTest {
     @Test
     void testAdd() {
         CityList cityList = mockCityList();
-
         assertEquals(1, cityList.getCities().size());
 
         City city = new City("Regina", "Saskatchewan");
         cityList.add(city);
-
         assertEquals(2, cityList.getCities().size());
-        assertTrue(cityList.getCities().contains(city));
+
+        assertTrue(cityList.getCities().contains(city));        // asserts that condition=true i.e city is added.
     }
 
     @Test
@@ -43,16 +42,46 @@ class CityListTest {
     }
 
     @Test
-    void testGetCities() {
+    void testGetCities()
+    {
         CityList cityList = mockCityList();
-
         assertEquals(0, mockCity().compareTo(cityList.getCities().get(0)));
 
         City city = new City("Charlottetown", "Prince Edward Island");
         cityList.add(city);
-
         assertEquals(0, city.compareTo(cityList.getCities().get(0)));
+
         assertEquals(0, mockCity().compareTo(cityList.getCities().get(1)));
+    }
+
+    @Test
+    void testCountCities()
+    {
+        CityList cityList = mockCityList();
+        assertEquals(1, cityList.getCities().size());
+
+        City city = new City("Regina", "Saskatchewan");
+        cityList.add(city);
+
+        assertNotNull(cityList);        // asserts that cityList is not null
+
+        assertEquals(2, cityList.CountCities());    // asserts that total size is now = 2
+    }
+
+    @Test
+    void testDeleteCity()
+    {
+        CityList cityList = mockCityList();
+        assertEquals(1, cityList.getCities().size());
+
+        City city = new City("Regina", "Saskatchewan");
+        cityList.add(city);
+        assertEquals(2, cityList.getCities().size());
+
+        cityList.DeleteCity(city);
+        assertEquals(1, cityList.getCities().size());   // after deletion, size = size -1
+
+        assertFalse(cityList.getCities().contains(city));     // asserts that the city is deleted from list.
     }
 
 }

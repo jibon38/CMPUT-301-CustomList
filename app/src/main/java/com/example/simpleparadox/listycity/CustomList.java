@@ -19,12 +19,12 @@ public class CustomList extends ArrayAdapter<City> {
     private ArrayList<City> cities;
     private Context context;
 
-    public CustomList(Context context, ArrayList<City> cities){
+    public CustomList(Context context, ArrayList<City> cities)
+    {
         super(context,0, cities);
         this.cities = cities;
         this.context = context;
     }
-
 
     @NonNull
     @Override
@@ -32,7 +32,8 @@ public class CustomList extends ArrayAdapter<City> {
 //        return super.getView(position, convertView, parent);
         View view = convertView;
 
-        if(view == null){
+        if(view == null)
+        {
             view = LayoutInflater.from(context).inflate(R.layout.content, parent,false);
         }
 
@@ -45,6 +46,5 @@ public class CustomList extends ArrayAdapter<City> {
         provinceName.setText(city.getProvinceName());
 
         return view;
-
     }
 }
