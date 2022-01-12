@@ -55,7 +55,7 @@ class CityListTest {
     }
 
     @Test
-    void testCountCities()
+    void testSize()
     {
         CityList cityList = mockCityList();
         assertEquals(1, cityList.getCities().size());
@@ -65,7 +65,7 @@ class CityListTest {
 
         assertNotNull(cityList);        // asserts that cityList is not null
 
-        assertEquals(2, cityList.CountCities());    // asserts that total size is now = 2
+        assertEquals(2, cityList.Size());    // asserts that total size is now = 2
     }
 
     @Test
@@ -79,9 +79,25 @@ class CityListTest {
         assertEquals(2, cityList.getCities().size());
 
         cityList.DeleteCity(city);
-        assertEquals(1, cityList.getCities().size());   // after deletion, size = size -1
 
+        assertEquals(1, cityList.getCities().size());   // after deletion, size = 1
         assertFalse(cityList.getCities().contains(city));     // asserts that the city is deleted from list.
+    }
+    @Test
+    void testDeleteCityException()
+    {
+        CityList cityList = mockCityList();
+        assertEquals(1, cityList.getCities().size());
+
+        City city = new City("Regina", "Saskatchewan");
+        cityList.add(city);
+        assertEquals(2, cityList.getCities().size());
+
+        cityList.DeleteCity(city);
+
+        assertThrows(IllegalArgumentException.class, () -> {
+            cityList.DeleteCity(city);
+        });
     }
 
 }

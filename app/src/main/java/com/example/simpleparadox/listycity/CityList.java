@@ -15,7 +15,7 @@ public class CityList {
     /**
      * This adds a city to the list if the city does not exist
      * @param city
-     *      This is a candidate city to add
+     * This is a candidate city to add
      */
     public void add(City city)
     {
@@ -29,7 +29,7 @@ public class CityList {
     /**
      * This returns a sorted list of cities
      * @return
-     *      Return the sorted list
+     * Return the sorted list
      */
     public List<City> getCities()
     {
@@ -39,34 +39,25 @@ public class CityList {
     }
 
     /**
-     * This will return the size of 'cities' i.e citylist if it's not empty.
+     * This will return the size of 'cities' i.e citylist
      * @return
      */
-    public int CountCities()
+    public int Size()
     {
-        if(cities.isEmpty())
-        {
-            System.out.println("There are no cities.");
-            //throw new IllegalArgumentException();
-        }
-        // when city list is not empty, return it's size.
         return cities.size();
     }
 
     /**
-     * This will delete a specified city object
+     * This will delete a specific city object
+     * @param city
      */
     public void DeleteCity(City city)
     {
-        if(cities.contains(city))
+        if(!cities.contains(city))
         {
-            cities.remove(city);
+            throw new IllegalArgumentException();
         }
-        else
-        {
-            System.out.println("The city doesn't exist.");
-            //throw new IllegalArgumentException();
-        }
+        cities.remove(city);
     }
 
 }

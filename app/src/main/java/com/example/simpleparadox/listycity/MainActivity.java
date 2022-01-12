@@ -43,13 +43,13 @@ public class MainActivity extends AppCompatActivity {
         cityList.setAdapter(cityAdapter);
 
         // ********************** finding the size of total cities *************************
-
+        /*
         CityList cityListObj = new CityList();
         Integer totalCities;        // for citylist size
 
         totalCities = cityListObj.CountCities();
         System.out.println("\nTotal Cities: "+ totalCities);
-
+        */
 
         // ********************** Removing a particular city *************************
         /*
